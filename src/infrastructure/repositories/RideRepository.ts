@@ -1,7 +1,7 @@
 import { Repository } from "./GenericRepository";
-import { Ride } from "../../core/entities/Ride";
+import { Ride } from "../../core/Models/Ride";
 import { IRide } from "../../core/interfaces/IRide";
-import { IRideRepository } from "../interfacesRepositories/IRideRepository";
+import { IRideRepository } from "../repositoryInterfaces/IRideRepository";
 
 export class RideRepository
   extends Repository<IRide>

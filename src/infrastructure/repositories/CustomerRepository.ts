@@ -1,7 +1,7 @@
 import { Repository } from "./GenericRepository";
-import { Customer } from "../../core/entities/Customer";
+import { Customer } from "../../core/Models/Customer";
 import { ICustomer } from "../../core/interfaces/ICustomer";
-import { ICustomerRepository } from "../interfacesRepositories/ICustomerRepository";
+import { ICustomerRepository } from "../repositoryInterfaces/ICustomerRepository";
 
 export class CustomerRepository
   extends Repository<ICustomer>

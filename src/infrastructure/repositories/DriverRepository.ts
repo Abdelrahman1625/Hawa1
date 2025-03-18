@@ -1,6 +1,6 @@
 import { Repository } from "./GenericRepository";
-import { Driver } from "../../core/entities/Driver";
-import { IDriverRepository } from "../interfacesRepositories/IDriverRepository";
+import { Driver } from "../../core/Models/Driver";
+import { IDriverRepository } from "../repositoryInterfaces/IDriverRepository";
 import { IDriver } from "../../core/interfaces/IDriver";
 
 export class DriverRepository

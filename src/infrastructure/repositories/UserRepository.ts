@@ -1,6 +1,6 @@
-import { UserModel } from "../../core/entities/User";
+import { UserModel } from "../../core/Models/User";
 import { IUser } from "../../core/interfaces/IUser";
-import { IUserRepository } from "../interfacesRepositories/IUserRepository";
+import { IUserRepository } from "../repositoryInterfaces/IUserRepository";
 import { Repository } from "./GenericRepository";
 
 export class UserRepository

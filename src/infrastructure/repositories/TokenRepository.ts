@@ -1,4 +1,4 @@
-import { TokenModel, IToken } from "../../core/entities/Token";
+import { TokenModel, IToken } from "../../core/Models/Token";
 
 export class TokenRepository {
   async createToken(tokenData: Partial<IToken>): Promise<IToken> {

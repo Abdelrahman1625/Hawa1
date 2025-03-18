@@ -1,5 +1,5 @@
 import { Model, Document } from "mongoose";
-import { IRepository } from "../interfacesRepositories/IRepository";
+import { IRepository } from "../repositoryInterfaces/IRepository";
 
 export class Repository<T extends Document> implements IRepository<T> {
   protected model: Model<T>;

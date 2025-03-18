@@ -1,6 +1,6 @@
-import { VehicleModel } from "../../core/entities/Vehicle";
+import { VehicleModel } from "../../core/Models/Vehicle";
 import { Repository } from "./GenericRepository";
-import { IVehicleRepository } from "../interfacesRepositories/IVehicleRepository";
+import { IVehicleRepository } from "../repositoryInterfaces/IVehicleRepository";
 import { IVehicleDocument } from "../../core/interfaces/IVehicle";
 
 export class VehicleRepository

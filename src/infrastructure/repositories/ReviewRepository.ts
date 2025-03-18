@@ -1,4 +1,4 @@
-import { Review } from "../../core/entities/Review";
+import { Review } from "../../core/Models/Review";
 import { IReview } from "../../core/interfaces/IReview";
 
 export class ReviewRepository {

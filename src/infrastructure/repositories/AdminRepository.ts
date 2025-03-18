@@ -1,7 +1,7 @@
 import { Repository } from "./GenericRepository";
-import { Admin } from "../../core/entities/Admin";
+import { Admin } from "../../core/Models/Admin";
 import { IAdmin } from "../../core/interfaces/IAdmin";
-import { IAdminRepository } from "../interfacesRepositories/IAdminRepository";
+import { IAdminRepository } from "../repositoryInterfaces/IAdminRepository";
 import { Model } from "mongoose";
 
 export class AdminRepository

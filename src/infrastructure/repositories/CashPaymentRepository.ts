@@ -1,7 +1,7 @@
 import { Repository } from "./GenericRepository";
-import { CashPayment } from "../../core/entities/CashPayment";
+import { CashPayment } from "../../core/Models/CashPayment";
 import { ICashPayment } from "../../core/interfaces/ICashPayment";
-import { ICashPaymentRepository } from "../interfacesRepositories/ICashPaymentRepository";
+import { ICashPaymentRepository } from "../repositoryInterfaces/ICashPaymentRepository";
 
 export class CashPaymentRepository
   extends Repository<ICashPayment>
