@@ -3,12 +3,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 import userRoutes from "./routes/userRoutes";
-import driverRoutes from "./routes/driverRoutes";
-import vehicleRoutes from "./routes/vehicleRoutes";
 import adminRoutes from "./routes/adminRoutes";
-import cashPaymentRoutes from "./routes/cashPaymentRoutes";
-import profitPaymentRoutes from "./routes/profitPaymentRoutes";
-import customerRoutes from "./routes/customerRoutes";
 import rideRoutes from "./routes/rideRoutes";
 import reviewRoutes from "./routes/reviewRoutes";
 import authRoutes from "./routes/authRoutes";
@@ -22,12 +17,7 @@ app.use(cors());
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
-app.use("/api/drivers", driverRoutes);
-app.use("/api/vehicles", vehicleRoutes);
 app.use("/api/admins", adminRoutes);
-app.use("/api/cashPayments", cashPaymentRoutes);
-app.use("/api/profitPayments", profitPaymentRoutes);
-app.use("/api/customers", customerRoutes);
 app.use("/api/rides", rideRoutes);
 app.use("/api/reviews", reviewRoutes);
 
