@@ -1,67 +1,8 @@
 import { Request, Response } from "express";
-import { UserRepository } from "../../infrastructure/repositories/UserRepository";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 import { UserModel } from "../../core/Models/User";
 import { RequestHandler } from "express";
 
 export class UserController {
-  private userRepository: UserRepository;
-
-  constructor() {
-    this.userRepository = new UserRepository();
-  }
-
-  async register(req: Request, res: Response) {
-    try {
-      const { name, email, password } = req.body;
-      const existingUser = await this.userRepository.findByEmail(email);
-      if (existingUser) {
-        return res.status(400).json({ message: "The Email is already in use" });
-      }
-
-      const hashedPassword = await bcrypt.hash(password, 10);
-      const newUser = await this.userRepository.create({
-        name,
-        email,
-        password_hash: hashedPassword,
-      });
-
-      const userResponse = { ...newUser.toObject(), password_hash: undefined };
-      res.status(201).json({ message: "Register Success", user: userResponse });
-    } catch (error) {
-      res.status(500).json({ message: "Server Error", error });
-    }
-  }
-
-  async login(req: Request, res: Response) {
-    try {
-      const { email, password } = req.body;
-
-      const user = await this.userRepository.findByEmail(email);
-      if (!user) {
-        return res.status(401).json({ message: "Email or Password invalid" });
-      }
-
-      const isMatch = await bcrypt.compare(password, user.password_hash);
-      if (!isMatch) {
-        return res.status(401).json({ message: "Email or Password invalid" });
-      }
-
-      const token = jwt.sign(
-        { userId: user._id },
-        process.env.JWT_SECRET as string,
-        {
-          expiresIn: "7d",
-        }
-      );
-
-      res.json({ message: "Login Successful", token });
-    } catch (error) {
-      res.status(500).json({ message: "Server Error", error });
-    }
-  }
-
   // Get all users
   public static getAllUsers: RequestHandler = async (
     req,
