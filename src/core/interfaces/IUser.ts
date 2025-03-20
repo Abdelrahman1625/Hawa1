@@ -1,14 +1,12 @@
-import { Document, Types } from "mongoose";
+import mongoose from "mongoose";
 
-export interface IUser extends Document {
+export interface IUser extends mongoose.Document {
+  _id: mongoose.Types.ObjectId;
   name: string;
   email: string;
   password_hash: string;
   phone: string;
   address: string;
-  user_type: "customer" | "driver" | "admin";
-  is_active: boolean;
-  createdAt: Date;
-  updatedAt: Date;
-  comparePassword(candidatePassword: string): Promise<boolean>;
+  user_type: string;
+  comparePassword(password: string): Promise<boolean>;
 }

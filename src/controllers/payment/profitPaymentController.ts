@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ProfitPayment } from "../core/Models/ProfitPayment";
+import { ProfitPayment } from "../../core/Models/ProfitPayment";
 
 export class ProfitPaymentController {
   static async getAllPayments(req: Request, res: Response) {

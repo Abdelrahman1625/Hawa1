@@ -1,18 +1,21 @@
-import { Schema, model, Types, Document } from "mongoose";
+import mongoose, { Schema, Document } from "mongoose";
 
 export interface IToken extends Document {
-  user_id: Types.ObjectId;
+  userId: string;
   token: string;
-  expires_at: Date;
+  passwordResetToken?: string;
+  verificationToken?: string;
+  createdAt: Date;
+  expiresAt: Date;
 }
 
-const tokenSchema = new Schema<IToken>(
-  {
-    user_id: { type: Schema.Types.ObjectId, required: true, ref: "User" },
-    token: { type: String, required: true },
-    expires_at: { type: Date, required: true },
-  },
-  { timestamps: true }
-);
+const TokenSchema = new Schema<IToken>({
+  userId: { type: String, required: true },
+  token: { type: String, required: true },
+  passwordResetToken: { type: String },
+  verificationToken: { type: String },
+  createdAt: { type: Date, default: Date.now },
+  expiresAt: { type: Date, required: true },
+});
 
-export const TokenModel = model<IToken>("Token", tokenSchema);
+export const TokenModel = mongoose.model<IToken>("Token", TokenSchema);

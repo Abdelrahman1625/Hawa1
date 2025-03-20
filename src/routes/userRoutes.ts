@@ -1,37 +1,14 @@
-import express, { RequestHandler } from "express";
+import express from "express";
 import { UserController } from "../controllers/user/userController";
-import { authMiddleware } from "../middleware/auth";
+import { auth } from "../middleware/auth";
 
 const router = express.Router();
 
-const userController = new UserController();
-
-// Static methods
-router.get("/", authMiddleware, UserController.getAllUsers as RequestHandler);
-router.get(
-  "/:id",
-  authMiddleware,
-  UserController.getUserById as RequestHandler
-);
-router.delete(
-  "/:id",
-  authMiddleware,
-  UserController.deleteUser as RequestHandler
-);
-
-// Instance methods
-router.post(
-  "/register",
-  userController.register.bind(userController) as RequestHandler
-);
-router.post(
-  "/login",
-  userController.login.bind(userController) as RequestHandler
-);
-router.put(
-  "/:id",
-  authMiddleware,
-  userController.updateUser.bind(userController) as RequestHandler
-);
+router.get("/", auth, UserController.getAllUsers);
+router.get("/:id", auth, UserController.getUserById);
+router.post("/register", UserController.register);
+router.post("/login", UserController.login);
+router.put("/:id", auth, UserController.updateUser);
+router.delete("/:id", auth, UserController.deleteUser);
 
 export default router;

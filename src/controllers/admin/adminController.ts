@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Admin } from "../core/Models/Admin";
+import { Admin } from "../../core/Models/Admin";
 
 export class AdminController {
   static async getAllAdmins(req: Request, res: Response) {

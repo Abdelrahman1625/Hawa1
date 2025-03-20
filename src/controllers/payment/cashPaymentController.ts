@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CashPayment } from "../core/Models/CashPayment";
+import { CashPayment } from "../../core/Models/CashPayment";
 
 export class CashPaymentController {
   static async getAllPayments(req: Request, res: Response) {

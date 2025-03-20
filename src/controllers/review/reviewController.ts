@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Review } from "../core/Models/Review";
+import { Review } from "../../core/Models/Review";
 
 export class ReviewController {
   static async getAllReviews(req: Request, res: Response) {

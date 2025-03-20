@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Ride } from "../core/Models/Ride";
+import { Ride } from "../../core/Models/Ride";
 
 export class RideController {
   static async getAllRides(req: Request, res: Response) {
